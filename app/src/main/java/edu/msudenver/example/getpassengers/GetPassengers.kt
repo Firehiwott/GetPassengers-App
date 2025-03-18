@@ -1,15 +1,13 @@
 package edu.msudenver.example.getpassengers
 
-//Firehiwot Tiruneh - Project
+// Firehiwot Tiruneh - Project
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
 
 class GetPassengers : AppCompatActivity() {
 
@@ -44,19 +42,17 @@ class GetPassengers : AppCompatActivity() {
 
         if (first.isNotEmpty() && last.isNotEmpty() && phone.isNotEmpty()) {
             val newPass = Passenger(first, last, phone)
-            // Append a new line before adding the passenger to ensure it appears after the line
-            if (textPut.text.contains("-----------------------------")) {
-                textPut.append("\n")  // Add a new line after the separator
-            }
-            textPut.append(newPass.toString() + "\n")  // Add the new passenger
+            passList.add(newPass)
 
-            // Clear input fields
+
+            textPut.append(newPass.toString() + "\n")
+
+
             textFirst.text.clear()
             textLast.text.clear()
             textPhone.text.clear()
         }
     }
-
 
     private fun backToMain() {
         val intent = Intent()
